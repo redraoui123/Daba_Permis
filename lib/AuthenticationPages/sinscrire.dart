@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:page_transition/page_transition.dart';
 
-Color phoneColor = Colors.grey[400];
-
 class Sinscrire extends StatefulWidget {
   Sinscrire({Key key}) : super(key: key);
 
@@ -23,9 +21,6 @@ class _SinscrireState extends State<Sinscrire> {
         toolbarHeight: 150.h,
         centerTitle: true,
         backgroundColor: Color.fromRGBO(51, 139, 226, 1),
-        actions: [
-          //Navigator.of(context).pop()
-        ],
         leading: Padding(
           padding: EdgeInsets.only(top: 15.h),
           child: InkWell(
@@ -161,7 +156,6 @@ class _SinscrireState extends State<Sinscrire> {
                         onTap: () {
                           setState(() {
                             _showpass = !_showpass;
-                            print('>>>>> $_showpass');
                           });
                         },
                         child: Icon(

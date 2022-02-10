@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return new Timer(duration, route);
     }
 
-    startTime();
+    //startTime();
 
     return SafeArea(
       child: Scaffold(

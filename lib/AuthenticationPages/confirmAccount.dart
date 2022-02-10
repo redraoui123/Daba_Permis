@@ -17,7 +17,6 @@ class _Myapp3State extends State<ConfirmAccount> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomPadding: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
           toolbarHeight: 150.h,
@@ -73,7 +72,7 @@ class _Myapp3State extends State<ConfirmAccount> {
                 ),
               ),
               SizedBox(
-                height: 14.h,
+                height: 16.h,
               ),
               Text(
                 'User.test2022@mail.com',

@@ -1,5 +1,4 @@
 import 'package:dabaPermis/AuthenticationPages/sinscrire1.dart';
-import 'package:dabaPermis/AuthenticationPages/sinscrire2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -7,9 +6,15 @@ import 'package:page_transition/page_transition.dart';
 
 Color phoneColor = Colors.grey[400];
 
-class Sinscrire extends StatelessWidget {
-  const Sinscrire({Key key}) : super(key: key);
+class Sinscrire extends StatefulWidget {
+  Sinscrire({Key key}) : super(key: key);
 
+  @override
+  _SinscrireState createState() => _SinscrireState();
+}
+
+class _SinscrireState extends State<Sinscrire> {
+  bool _showpass = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +41,7 @@ class Sinscrire extends StatelessWidget {
         ),
         title: Image.asset(
           'images/Logo_white.png',
-          height: 120.h,
+          height: 95.h,
         ),
       ),
       body: SingleChildScrollView(
@@ -44,7 +49,7 @@ class Sinscrire extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 28.h, bottom: 20.h),
+              padding: EdgeInsets.only(top: 28.h, bottom: 28.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -55,7 +60,7 @@ class Sinscrire extends StatelessWidget {
                       color: Color.fromRGBO(51, 139, 226, 1),
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.w800,
-                      fontSize: 26,
+                      fontSize: 28.sp,
                       height: 1.5,
                     ),
                   ),
@@ -69,12 +74,12 @@ class Sinscrire extends StatelessWidget {
                 color: Color.fromRGBO(51, 139, 226, 1),
                 fontFamily: 'Lato',
                 fontWeight: FontWeight.w800,
-                fontSize: 18,
+                fontSize: 16.sp,
                 height: 1.5,
               ),
             ),
             SizedBox(
-              height: 70.h,
+              height: 30.h,
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.w, right: 20.w),
@@ -138,7 +143,7 @@ class Sinscrire extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 25.h, left: 20.w, right: 20.w),
               child: TextField(
-                obscureText: true,
+                obscureText: _showpass == false ? true : false,
                 enableSuggestions: false,
                 autocorrect: false,
                 decoration: InputDecoration(
@@ -148,6 +153,24 @@ class Sinscrire extends StatelessWidget {
                         FeatherIcons.lock,
                         size: 30,
                         color: Colors.grey[500],
+                      ),
+                    ),
+                    suffixIcon: Padding(
+                      padding: EdgeInsets.only(left: 14, right: 24),
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            _showpass = !_showpass;
+                            print('>>>>> $_showpass');
+                          });
+                        },
+                        child: Icon(
+                          _showpass == false
+                              ? FeatherIcons.eyeOff
+                              : FeatherIcons.eye,
+                          size: 25,
+                          color: Colors.grey[500],
+                        ),
                       ),
                     ),
                     fillColor: Colors.white,
@@ -242,7 +265,7 @@ class Sinscrire extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 80.h,
+              height: 50.h,
             ),
             InkWell(
               onTap: () {
@@ -274,7 +297,7 @@ class Sinscrire extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 70.h,
+              height: 40.h,
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 60.h, left: 40.w, right: 40.w),

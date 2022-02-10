@@ -58,7 +58,7 @@ class _Myapp3State extends State<SeConn> {
                       color: Color.fromRGBO(51, 139, 226, 1),
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.w800,
-                      fontSize: 29.sp,
+                      fontSize: 28.sp,
                       height: 1.5,
                     ),
                   ),
@@ -82,13 +82,6 @@ class _Myapp3State extends State<SeConn> {
             Padding(
               padding: EdgeInsets.only(left: 20.w, right: 20.w),
               child: TextField(
-                onTap: () {
-                  print('tapped');
-                  setState(() {
-                    emailColor = Color.fromRGBO(51, 139, 226, 1);
-                    passwordColor = Colors.grey[500];
-                  });
-                },
                 decoration: InputDecoration(
                     prefixIcon: Padding(
                       padding: EdgeInsets.only(left: 14, right: 24),
@@ -96,7 +89,7 @@ class _Myapp3State extends State<SeConn> {
                         FeatherIcons.user,
                         size: 30,
                         //color: Colors.grey[500],
-                        color: emailColor,
+                        color: Colors.grey[500],
                       ),
                     ),
                     fillColor: Colors.white,
@@ -134,7 +127,7 @@ class _Myapp3State extends State<SeConn> {
                       child: Icon(
                         FeatherIcons.lock,
                         size: 30,
-                        color: passwordColor,
+                        color: Colors.grey[500],
                       ),
                     ),
                     fillColor: Colors.white,
@@ -196,7 +189,7 @@ class _Myapp3State extends State<SeConn> {
               ),
             ),
             SizedBox(
-              height: 70.h,
+              height: 40.h,
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 60.h, left: 40.w, right: 40.w),

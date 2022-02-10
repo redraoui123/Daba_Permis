@@ -21,10 +21,20 @@ class Page1 extends StatelessWidget {
               width: 375.w,
               child: Column(
                 children: [
-                  Center(
-                    child: Image.asset(
-                      'images/Logo_color.png',
-                      height: 95.h,
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 42.h, bottom: 34.h, left: 125.w, right: 125.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Image.asset(
+                            'images/Logo_color.png',
+                            width: 150.w,
+                            height: 95.h,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
@@ -48,8 +58,6 @@ class Page1 extends StatelessWidget {
             SizedBox(
               height: 23.h,
             ),
-            // wraped inside Flexible to provide an auto-Break when the text reaches the side of the screen
-            // can be changed if we want to specify exactely the break position
             Flexible(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 111.w),
@@ -67,10 +75,8 @@ class Page1 extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 5.h,
+              height: 10.h,
             ),
-            // wraped inside Flexible to provide an auto-Break when the text reaches the side of the screen
-            // can be changed if we want to specify exactely the break position
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Flexible(
@@ -150,8 +156,8 @@ class Page1 extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(50))),
-                  width: 65,
-                  height: 65,
+                  width: 55,
+                  height: 55,
                   child: Icon(
                     FeatherIcons.arrowRight,
                     size: 30,

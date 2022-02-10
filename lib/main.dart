@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dabaPermis/OnBoardingPages/onBoardingPageOne.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Daba Permis',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -40,6 +43,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  route() {
+    Navigator.push(
+        context,
+        PageTransition(
+            type: PageTransitionType.fade,
+            duration: Duration(milliseconds: 1000),
+            child: Page1()));
+  }
+
   @override
   Widget build(BuildContext context) {
     // make app not rotatable
@@ -47,9 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    startTime() async {
+      var duration = new Duration(seconds: 3);
+      return new Timer(duration, route);
+    }
+
+    startTime();
+
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomPadding: false,
         backgroundColor: Color.fromRGBO(51, 139, 226, 1),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -59,21 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // inkwell temporary to navigate between pages
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                              type: PageTransitionType.rightToLeft,
-                              duration: Duration(milliseconds: 500),
-                              child: Page1()));
-                    },
-                    child: Image.asset(
-                      'images/Logo_white.png',
-                      height: 200.h,
-                      width: 300.w,
-                    ),
+                  Image.asset(
+                    'images/Logo_white.png',
+                    height: 200.h,
+                    width: 300.w,
                   ),
                 ],
               ),
@@ -81,8 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // wraped inside Flexible to provide an auto-Break when the text reaches the side of the screen
-                // can be changed if we want to specify exactely the break position
                 Flexible(
                   child: Padding(
                     padding: EdgeInsets.only(left: 8.w, right: 8.w),

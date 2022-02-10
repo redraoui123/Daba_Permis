@@ -26,6 +26,8 @@ dependencies:
   flutter_screenutil: 
   flutter_feather_icons: 
   page_transition: 
+  image_picker: 
+
 
 
   # The following adds the Cupertino Icons font to your application.
